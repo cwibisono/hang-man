@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &40853164
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -421,7 +421,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &329495574
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -629,6 +629,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeField: {fileID: 178787907}
   wordToFindField: {fileID: 1453983098}
+  hangMan:
+  - {fileID: 329495573}
+  - {fileID: 2145154482}
+  - {fileID: 1824835323}
+  - {fileID: 40853163}
+  - {fileID: 987909133}
+  - {fileID: 1440441542}
+  winText: {fileID: 1303737333}
+  loseText: {fileID: 1820332740}
 --- !u!4 &423820226
 Transform:
   m_ObjectHideFlags: 0
@@ -650,7 +659,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 423820224}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db573583a6327fb44852922f1615c360, type: 3}
   m_Name: 
@@ -1012,7 +1021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &987909134
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1360,7 +1369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1440441543
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1712,7 +1721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1824835324
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1906,7 +1915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &2145154483
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -15,6 +15,11 @@ public class Controller : MonoBehaviour
     private string[] wordsLocal = { "ONCOM", "TEMPE", "TAHU", "AYAM GORENG", "BEBEK", "TERONG" };
     private string chosenWord;
     private string hiddenWord;
+    public GameObject[] hangMan;
+    public GameObject winText;
+    public GameObject loseText;   
+    private int fails;
+    private bool gameEnd = false;
 
         // Start is called before the first frame update
     void Start()
@@ -26,17 +31,18 @@ public class Controller : MonoBehaviour
         // }
         
         chosenWord = wordsLocal[Random.Range(0, wordsLocal.Length)];
+        Debug.Log(chosenWord);
         
         for (int i = 0; i < chosenWord.Length; i++)
         {
             char letter = chosenWord[i];
             if (char.IsWhiteSpace(letter))
             {
-                hiddenWord += "  ";
+                hiddenWord += " ";
             }
             else
             {
-                hiddenWord += "_ ";
+                hiddenWord += "_";
             }
         }
 
@@ -48,8 +54,11 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update() 
     {
-        time += Time.deltaTime;
-        timeField.text = time.ToString();
+        if (gameEnd == false)
+        {
+            time += Time.deltaTime;
+            timeField.text = time.ToString();
+        }
     }
 
     private void OnGUI()
@@ -58,20 +67,44 @@ public class Controller : MonoBehaviour
         if (e.type == EventType.KeyDown && e.keyCode.ToString().Length == 1)
         {
             string pressedLetter = e.keyCode.ToString();
-            
             Debug.Log("Keydown event was triggered " + pressedLetter);
             
             if (chosenWord.Contains(pressedLetter))
             {
+                
                 int i = chosenWord.IndexOf(pressedLetter);
                 while (i !=-1)
                 {
+                    //set new hidden word to everything before the i
+                    //change the i to the letter pressed, and everything after the i
+                    hiddenWord = hiddenWord.Substring(0, i) + pressedLetter + hiddenWord.Substring(i + 1);
+                    Debug.Log(hiddenWord);
                     
+                    chosenWord = chosenWord.Substring(0, i) + "_" + chosenWord.Substring(i + 1);
+                    Debug.Log(chosenWord);
+                    
+                    i = chosenWord.IndexOf(pressedLetter);
                 }
+
+                wordToFindField.text = hiddenWord;
             }
+            //add hangman body parts
             else
             {
-                
+                hangMan[fails].SetActive(true);
+                fails++;
+            }
+            //case lost
+            if (fails == hangMan.Length)
+            {
+                loseText.SetActive(true);
+                gameEnd = true;
+            }
+
+            if (!hiddenWord.Contains("_"))
+            {
+                winText.SetActive(true);
+                gameEnd = true;
             }
         }
     }
