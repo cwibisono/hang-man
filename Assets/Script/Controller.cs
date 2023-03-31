@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using MiscUtil.Collections.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,7 +13,8 @@ public class Controller : MonoBehaviour
     public Text timeField;
     public Text wordToFindField;
     private float time;
-    private string[] wordsLocal = { "ONCOM", "TEMPE", "TAHU", "AYAM GORENG", "BEBEK", "TERONG" };
+    //private string[] wordsLocal = { "ONCOM", "TEMPE", "TAHU", "AYAM GORENG", "BEBEK", "TERONG" };
+    private string[] word = File.ReadAllLines(@"Assets/Food.txt");
     private string chosenWord;
     private string hiddenWord;
     public GameObject[] hangMan;
@@ -30,7 +32,7 @@ public class Controller : MonoBehaviour
         //     Debug.Log(wordsLocal[i]); 
         // }
         
-        chosenWord = wordsLocal[Random.Range(0, wordsLocal.Length)];
+        chosenWord = word[Random.Range(0, word.Length)];
         Debug.Log(chosenWord);
         
         for (int i = 0; i < chosenWord.Length; i++)
@@ -110,3 +112,5 @@ public class Controller : MonoBehaviour
     }
     
 }
+
+
