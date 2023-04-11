@@ -19,7 +19,8 @@ public class Controller : MonoBehaviour
     private string hiddenWord;
     public GameObject[] hangMan;
     public GameObject winText;
-    public GameObject loseText;   
+    public GameObject loseText;
+    public GameObject replayButton;
     private int fails;
     private bool gameEnd = false;
 
@@ -100,6 +101,7 @@ public class Controller : MonoBehaviour
             if (fails == hangMan.Length)
             {
                 loseText.SetActive(true);
+                replayButton.SetActive(true);
                 gameEnd = true;
             }
 

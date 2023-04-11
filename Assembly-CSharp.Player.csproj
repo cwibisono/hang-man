@@ -43,6 +43,7 @@
   <ItemGroup>
      <Compile Include="Assets\Script\Basics.cs" />
      <Compile Include="Assets\Script\Controller.cs" />
+     <Compile Include="Assets\Script\ButtonController.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.1.0f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\Variations\mono\Managed\UnityEngine.dll</HintPath>
      </Reference>
